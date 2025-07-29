@@ -23,16 +23,16 @@ export default function StatCard({
 
   return (
     <div className={cardClasses}>
-      <div className="flex items-center justify-between mb-3">
+      <div className="flex items-center space-x-3 mb-3">
         <div className={`p-2 rounded-lg ${bgColor}`}>
-          <Icon className={`w-5 h-5 ${iconColor}`} />
+          <Icon className={`w-4 h-4 ${iconColor}`} />
         </div>
+        <p className="text-gray-600 text-xs font-medium">{title}</p>
       </div>
 
-      <div>
-        <p className="text-gray-600 text-xs font-medium mb-1">{title}</p>
-        <p className="text-xl font-bold text-gray-800 mb-1">{value}</p>
-        <p className="text-gray-500 text-[10px]">{subtitle}</p>
+      <div className="flex items-center space-x-2">
+        <p className="text-xl font-bold text-gray-800">{value}</p>
+        <p className="text-gray-500 text-[10px]">({subtitle})</p>
       </div>
     </div>
   )

@@ -13,40 +13,40 @@ export default function Dashboard() {
       value: "+20",
       subtitle: "vs last 7 days",
       icon: Briefcase,
-      bgColor: "bg-pink-100",
-      iconColor: "text-pink-600",
+      bgColor: "bg-[#ea669f]",
+      iconColor: "text-white",
     },
     {
       title: "Total Applicants",
       value: "+12",
       subtitle: "vs last 7 days",
       icon: Users,
-      bgColor: "bg-purple-100",
-      iconColor: "text-purple-600",
+      bgColor: "bg-[#ea669f]",
+      iconColor: "text-white",
     },
     {
       title: "Interviewed",
       value: "+6",
       subtitle: "vs last 7 days",
       icon: UserCheck,
-      bgColor: "bg-pink-100",
-      iconColor: "text-pink-600",
+      bgColor: "bg-[#ea669f]",
+      iconColor: "text-white",
     },
   ]
 
   return (
     <DashboardLayout>
-      <div className="flex-1 p-4 ">
+      <div className="flex-1 ">
         <Header />
 
         {/* Main Dashboard Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-4">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-2">
           {/* Left Column - Stats Cards and Line Chart */}
-          <div className="lg:col-span-2 space-y-4">
+          <div className="lg:col-span-2 space-y-2 p-8">
             {/* Stats Cards Container */}
-            <div className="flex bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+            <div className="flex bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
               {statsData.map((stat, index) => (
-                <div key={index} className="flex">
+                <div key={index} className="flex-1 flex justify-center ">
                   <StatCard {...stat} isInGroup={true} />
                   {index < statsData.length - 1 && <div className="w-px bg-gray-200 self-stretch my-4" />}
                 </div>
@@ -58,7 +58,7 @@ export default function Dashboard() {
           </div>
 
           {/* Right Column - Donut Chart */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 py-8 pr-8">
             <DonutChart />
           </div>
         </div>
