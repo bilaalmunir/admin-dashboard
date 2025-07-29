@@ -49,7 +49,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                     : "w-12 h-12 rounded-full p-0 justify-center mt-4"
                 } ${
                   item.label === currentPage
-                    ? "bg-white bg-opacity-60 text-gray-800 shadow-sm "
+                    ? "bg-[#ea669f] bg-opacity-60 text-gray-800 shadow-sm "
                     : "text-gray-700 hover:bg-white hover:bg-opacity-40"
                 }`}
               >
