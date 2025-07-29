@@ -34,7 +34,7 @@ export default function CandidateCard({ candidate }: CandidateCardProps) {
         </div>
 
         {/* Middle - Experience and Skills */}
-        <div className="flex flex-col sm:flex-row sm:space-x-8 space-y-3 sm:space-y-0">
+        <div className="flex flex-col sm:flex-row sm:space-x-28 space-y-3 sm:space-y-0">
           <div className="text-left">
             <p className="text-xs text-gray-500 mb-1">Experience</p>
             <p className="text-sm text-gray-700">{candidate.experience}</p>
