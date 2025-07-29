@@ -20,13 +20,14 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
       { icon: TrendingUp, label: "Top Candidates", href: "/top-candidates" },
       { icon: Puzzle, label: "Integrations", href: "/" },
       { icon: Calendar, label: "Calendar", href: "/" },
-      { icon: HelpCircle, label: "Help", href: "/" },
     ]
+
+    const helpItem = { icon: HelpCircle, label: "Help", href: "/" }
 
     return (
       <div
         ref={ref}
-        className={`h-full transition-all duration-300 ease-in-out relative rounded-r-3xl ${
+        className={`h-full transition-all duration-300 ease-in-out relative rounded-r-3xl flex flex-col ${
           isExpanded ? "w-64 bg-[#D7DCF7]" : "w-28"
         }`}
       >
@@ -37,16 +38,16 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className="space-y-16 pl-8 py-6">
+        {/* Main Navigation */}
+        <nav className="space-y-16 pl-8 py-6 flex-1">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href}>
               <button
                 onClick={onItemClick}
                 className={`flex items-center transition-all duration-200 ${
                   isExpanded 
-                    ? "w-full space-x-3 p-4 text-left justify-start" 
-                    : "w-12 h-12 rounded-full p-0 justify-center mt-4"
+                    ? "w-full space-x-4 p-5 text-left justify-start" 
+                    : "w-14 h-14 rounded-full p-0 justify-center mt-4"
                 } ${
                   item.label === currentPage
                     ? isExpanded 
@@ -60,16 +61,16 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                   item.label === currentPage && isExpanded
                     ? {
                         marginRight: '-32px',
-                        paddingRight: 'calc(1rem + 32px)',
+                        paddingRight: 'calc(1.25rem + 32px)',
                         borderTopRightRadius: '0',
                         borderBottomRightRadius: '0'
                       }
                     : {}
                 }
               >
-                <item.icon className="w-6 h-6 flex-shrink-0" />
+                <item.icon className="w-7 h-7 flex-shrink-0" />
                 <span
-                  className={`text-sm font-medium transition-all duration-300 ${
+                  className={`text-base font-medium transition-all duration-300 ${
                     isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
                   }`}
                 >
@@ -79,6 +80,47 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
             </Link>
           ))}
         </nav>
+
+        {/* Help Item at Bottom */}
+        <div className="pl-8 pb-6">
+          <Link href={helpItem.href}>
+            <button
+              onClick={onItemClick}
+              className={`flex items-center transition-all duration-200 ${
+                isExpanded 
+                  ? "w-full space-x-4 p-5 text-left justify-start" 
+                  : "w-14 h-14 rounded-full p-0 justify-center"
+              } ${
+                helpItem.label === currentPage
+                  ? isExpanded 
+                    ? "bg-[#F1F1F1] text-gray-800 rounded-l-2xl relative overflow-visible" 
+                    : "bg-[#D7DCF7] text-gray-800 shadow-sm"
+                  : isExpanded
+                    ? "text-gray-700 hover:bg-white hover:bg-opacity-40 rounded-xl"
+                    : "text-gray-700 hover:bg-white hover:bg-opacity-40"
+              }`}
+              style={
+                helpItem.label === currentPage && isExpanded
+                  ? {
+                      marginRight: '-32px',
+                      paddingRight: 'calc(1.25rem + 32px)',
+                      borderTopRightRadius: '0',
+                      borderBottomRightRadius: '0'
+                    }
+                  : {}
+              }
+            >
+              <helpItem.icon className="w-7 h-7 flex-shrink-0" />
+              <span
+                className={`text-base font-medium transition-all duration-300 ${
+                  isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
+                }`}
+              >
+                {helpItem.label}
+              </span>
+            </button>
+          </Link>
+        </div>
       </div>
     )
   },
