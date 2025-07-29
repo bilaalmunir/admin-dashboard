@@ -6,7 +6,7 @@ const candidatesData = [
   {
     id: 1,
     name: "John Doe",
-    title: "Senior Product Designer",
+    title: "Full stack developer",
     experience: "6+ years of experience",
     skills: ["Figma", "Adobe Illustrator"],
     avatar: "/placeholder.svg?height=60&width=60&text=JD",
@@ -56,7 +56,7 @@ const candidatesData = [
 export default function TopCandidatesPage() {
   return (
     <DashboardLayout currentPage="Top Candidates">
-      <div className="flex-1 p-4 bg-gray-50">
+      <div className="flex-1 p-4">
         <TopCandidatesHeader />
 
         <div className="space-y-4">

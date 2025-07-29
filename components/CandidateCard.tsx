@@ -15,7 +15,7 @@ interface CandidateCardProps {
 
 export default function CandidateCard({ candidate }: CandidateCardProps) {
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+    <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-300">
       <div className="flex items-center justify-between">
         {/* Left side - Avatar and Info */}
         <div className="flex items-center space-x-4">
@@ -34,17 +34,17 @@ export default function CandidateCard({ candidate }: CandidateCardProps) {
         </div>
 
         {/* Middle - Experience and Skills */}
-        <div className="flex items-center space-x-8">
-          <div className="text-center">
+        <div className="flex space-x-8">
+          <div className="text-left">
             <p className="text-xs text-gray-500 mb-1">Experience</p>
             <p className="text-sm text-gray-700">{candidate.experience}</p>
           </div>
 
-          <div className="text-center">
+          <div className="text-left">
             <p className="text-xs text-gray-500 mb-2">Skills</p>
             <div className="flex space-x-2">
               {candidate.skills.map((skill, index) => (
-                <span key={index} className="px-3 py-1 bg-blue-100 text-blue-700 text-xs rounded-full">
+                <span key={index} className="px-3 py-1 bg-purple-200 text-blue-400 text-xs rounded-md">
                   {skill}
                 </span>
               ))}
