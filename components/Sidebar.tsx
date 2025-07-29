@@ -82,13 +82,13 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         </nav>
 
         {/* Help Item at Bottom */}
-        <div className="pl-8 pb-4">
+        <div className="pl-8 pb-2">
           <Link href={helpItem.href}>
             <button
               onClick={onItemClick}
               className={`flex items-center transition-all duration-200 ${
                 isExpanded 
-                  ? "w-full space-x-4 p-5 text-left justify-start" 
+                  ? "w-full space-x-2 py-5 text-left justify-start" 
                   : "w-14 h-14 rounded-full p-0 justify-center"
               } ${
                 helpItem.label === currentPage
@@ -96,7 +96,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                     ? "bg-[#F1F1F1] text-gray-800 rounded-l-2xl relative overflow-visible" 
                     : "bg-[#D7DCF7] text-gray-800 shadow-sm"
                   : isExpanded
-                    ? "text-gray-700 hover:bg-white hover:bg-opacity-40 rounded-xl"
+                    ? "text-gray-700 rounded-xl"
                     : "text-gray-700 hover:bg-white hover:bg-opacity-40"
               }`}
               style={
@@ -110,7 +110,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                   : {}
               }
             >
-              <helpItem.icon className="w-6 h-6 flex-shrink-0 mb-4" />
+              <helpItem.icon className="w-3 h-3 flex-shrink-0 mb-4" />
               <span
                 className={`text-base font-medium transition-all duration-300 ${
                   isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"

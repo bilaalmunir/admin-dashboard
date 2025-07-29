@@ -15,7 +15,7 @@ export default function Card({
   padding = "md",
   shadow = "sm",
   border = true,
-  rounded = "xl"
+  rounded = "lg"
 }: CardProps) {
   const paddingClasses = {
     sm: "p-3",
