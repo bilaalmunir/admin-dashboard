@@ -5,11 +5,12 @@ interface Column {
   label: string
   shortLabel?: string
   sortable?: boolean
+  render?: (value: unknown, row: Record<string, unknown>) => ReactNode
 }
 
 interface TableProps {
   columns: Column[]
-  data: any[]
+  data: Record<string, unknown>[]
   onSort?: (columnKey: string) => void
   sortColumn?: string
   sortDirection?: "asc" | "desc"
@@ -62,7 +63,7 @@ export default function Table({
               <tr key={index} className="hover:bg-gray-50">
                 {columns.map((column) => (
                   <td key={column.key} className="px-2 sm:px-4 py-3 text-xs text-gray-500">
-                    {row[column.key]}
+                    {column.render ? column.render(row[column.key], row) : row[column.key]}
                   </td>
                 ))}
               </tr>

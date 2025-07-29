@@ -8,7 +8,6 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
-  Legend,
 } from "recharts"
 
 const data = [

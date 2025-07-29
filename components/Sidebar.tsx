@@ -39,15 +39,15 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         </div>
 
         {/* Main Navigation */}
-        <nav className="space-y-12 pl-8 py-4 flex-1">
+        <nav className="space-y-8 pl-6 py-4 flex-1">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href}>
               <button
                 onClick={onItemClick}
                 className={`flex items-center transition-all duration-200 ${
                   isExpanded 
-                    ? "w-full space-x-4 p-5 text-left justify-start" 
-                    : "w-14 h-14 rounded-full p-0 justify-center mt-4"
+                    ? "w-full space-x-3 p-3 text-left justify-start" 
+                    : "w-12 h-12 rounded-full p-0 justify-center mt-2"
                 } ${
                   item.label === currentPage
                     ? isExpanded 
@@ -68,9 +68,9 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                     : {}
                 }
               >
-                <item.icon className="w-7 h-7 flex-shrink-0" />
+                <item.icon className="w-5 h-5 flex-shrink-0" />
                 <span
-                  className={`text-base font-medium transition-all duration-300 ${
+                  className={`text-sm font-medium transition-all duration-300 ${
                     isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
                   }`}
                 >
@@ -110,7 +110,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                   : {}
               }
             >
-              <helpItem.icon className="w-7 h-7 flex-shrink-0 mb-4" />
+              <helpItem.icon className="w-6 h-6 flex-shrink-0 mb-4" />
               <span
                 className={`text-base font-medium transition-all duration-300 ${
                   isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"

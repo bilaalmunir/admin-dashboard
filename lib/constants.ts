@@ -45,6 +45,18 @@ export const DEFAULT_STATS_DATA: StatData[] = [
   },
 ]
 
+export interface JobData {
+  salary: string
+  position: string
+  client: string
+  availability: string
+  location: string
+  postedAt: string
+  expireAt: string
+  received: number
+  status: string
+}
+
 export const DEFAULT_CANDIDATES_DATA: CandidateData[] = [
   {
     id: 1,
@@ -93,5 +105,74 @@ export const DEFAULT_CANDIDATES_DATA: CandidateData[] = [
     experience: "6+ years of experience",
     skills: ["Figma", "Adobe Illustrator"],
     avatar: "/placeholder.svg?height=60&width=60&text=LA",
+  },
+]
+
+export const DEFAULT_JOBS_DATA: JobData[] = [
+  {
+    salary: "$150.00 /m",
+    position: "UI/Ux Designer",
+    client: "Nexterse",
+    availability: "7 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 150,
+    status: "Live",
+  },
+  {
+    salary: "$250.00 /m",
+    position: "Full Stack Developer",
+    client: "Devsinc",
+    availability: "15 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 130,
+    status: "Live",
+  },
+  {
+    salary: "$150.00 /m",
+    position: "Mern-Stack Developer",
+    client: "Nexterse",
+    availability: "7 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 110,
+    status: "Live",
+  },
+  {
+    salary: "$250.00 /m",
+    position: "Mean Stack Developer",
+    client: "Nexterse",
+    availability: "15 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 220,
+    status: "Live",
+  },
+  {
+    salary: "$150.00 /m",
+    position: "Back-end Developer",
+    client: "Devsinc",
+    availability: "7 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 20,
+    status: "Live",
+  },
+  {
+    salary: "$250.00 /m",
+    position: "Front-End Developer",
+    client: "Systems",
+    availability: "15 Days",
+    location: "Lahore, Punjab, Pakistan",
+    postedAt: "2025-06-20",
+    expireAt: "2025-06-20",
+    received: 50,
+    status: "Live",
   },
 ] 
