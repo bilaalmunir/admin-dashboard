@@ -5,7 +5,7 @@ import JobsTable from "@/components/JobsTable"
 export default function JobsPage() {
   return (
     <DashboardLayout currentPage="Jobs">
-      <div className="flex-1 p-8">
+      <div className="flex-1 p-4 lg:p-8">
         <JobsHeader />
         <JobsTable />
       </div>

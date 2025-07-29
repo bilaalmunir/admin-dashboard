@@ -189,18 +189,19 @@ export default function JobsTable() {
   ]
 
   return (
-    <div className="px-2 py-6">
+    <div className="px-2 sm:px-4 lg:px-8 py-4 lg:py-6">
       {/* Table */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[900px]">
             <thead className="bg-gray-50">
               <tr>
                 {columns.map((column) => (
-                  <th key={column.key} className="px-4 py-3 text-left">
+                  <th key={column.key} className="px-2 sm:px-4 py-3 text-left">
                     <button className="flex items-center space-x-1 text-xs font-medium text-gray-600 hover:text-gray-800">
-                      <span>{column.label}</span>
-                      {column.key !== "action" && <ChevronDown className="w-4 h-4" />}
+                      <span className="hidden sm:inline">{column.label}</span>
+                      <span className="sm:hidden">{column.label.substring(0, 3)}</span>
+                      {column.key !== "action" && <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4" />}
                     </button>
                   </th>
                 ))}
@@ -209,26 +210,26 @@ export default function JobsTable() {
             <tbody className="divide-y divide-gray-100">
               {jobsData.map((job, index) => (
                 <tr key={index} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-xs font-medium text-gray-500">{job.salary}</td>
-                  <td className="px-4 py-3 text-xs text-gray-800 font-medium">{job.position}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.client}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.availability}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.location}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.postedAt}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.expireAt}</td>
-                  <td className="px-4 py-3 text-xs text-gray-500">{job.received}</td>
-                  <td className="px-4 py-3">
+                  <td className="px-2 sm:px-4 py-3 text-xs font-medium text-gray-500">{job.salary}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-800 font-medium">{job.position}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.client}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.availability}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.location}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.postedAt}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.expireAt}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-500">{job.received}</td>
+                  <td className="px-2 sm:px-4 py-3">
                     <span className="px-2 py-1 bg-green-200 text-green-500 text-xs rounded-full font-medium">
                       {job.status}
                     </span>
                   </td>
-                  <td className="px-4 py-3">
-                    <div className="flex items-center space-x-2">
-                      <button className="p-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg transition-colors">
-                        <Share2 className="w-3 h-3 text-pink-600" />
+                  <td className="px-2 sm:px-4 py-3">
+                    <div className="flex items-center space-x-1 sm:space-x-2">
+                      <button className="p-1 sm:p-1.5 bg-pink-100 hover:bg-pink-200 rounded-lg transition-colors">
+                        <Share2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-pink-600" />
                       </button>
-                      <button className="p-1.5 bg-red-100 hover:bg-red-200 rounded-lg transition-colors">
-                        <Trash2 className="w-3 h-3 text-red-600" />
+                      <button className="p-1 sm:p-1.5 bg-red-100 hover:bg-red-200 rounded-lg transition-colors">
+                        <Trash2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-red-600" />
                       </button>
                     </div>
                   </td>
@@ -240,7 +241,7 @@ export default function JobsTable() {
       </div>
 
       {/* Pagination outside table */}
-      <div className="flex justify-end mt-4">
+      <div className="flex justify-center lg:justify-end mt-4">
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-2">
           <div className="flex items-center">
             <button
