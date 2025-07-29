@@ -32,14 +32,14 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         }`}
       >
         {/* Logo */}
-        <div className="p-6">
+        <div className="p-4">
           <div className="w-7 h-7 rounded-lg flex items-center justify-center mx-auto">
             <span className="text-blue font-bold text-4xl">N</span>
           </div>
         </div>
 
         {/* Main Navigation */}
-        <nav className="space-y-16 pl-8 py-6 flex-1">
+        <nav className="space-y-12 pl-8 py-4 flex-1">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href}>
               <button
@@ -82,7 +82,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
         </nav>
 
         {/* Help Item at Bottom */}
-        <div className="pl-8 pb-6">
+        <div className="pl-8 pb-4">
           <Link href={helpItem.href}>
             <button
               onClick={onItemClick}
@@ -110,7 +110,7 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
                   : {}
               }
             >
-              <helpItem.icon className="w-7 h-7 flex-shrink-0" />
+              <helpItem.icon className="w-7 h-7 flex-shrink-0 mb-4" />
               <span
                 className={`text-base font-medium transition-all duration-300 ${
                   isExpanded ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-2 w-0 overflow-hidden"
