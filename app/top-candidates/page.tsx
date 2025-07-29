@@ -56,10 +56,10 @@ const candidatesData = [
 export default function TopCandidatesPage() {
   return (
     <DashboardLayout currentPage="Top Candidates">
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 lg:p-8">
         <TopCandidatesHeader />
 
-        <div className="space-y-4">
+        <div className="space-y-4 lg:space-y-6">
           {candidatesData.map((candidate) => (
             <CandidateCard key={candidate.id} candidate={candidate} />
           ))}
