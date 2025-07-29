@@ -1,14 +1,13 @@
 import DashboardLayout from "@/components/layouts/DashboardLayout"
-import JobsHeader from "@/components/JobsHeader"
-import JobsTable from "@/components/JobsTable"
+import PageWrapper from "@/components/PageWrapper"
+import JobsContent from "@/components/JobsContent"
 
 export default function JobsPage() {
   return (
     <DashboardLayout currentPage="Jobs">
-      <div className="flex-1 p-4 lg:p-8">
-        <JobsHeader />
-        <JobsTable />
-      </div>
+      <PageWrapper showHeader={false}>
+        <JobsContent />
+      </PageWrapper>
     </DashboardLayout>
   )
 }
