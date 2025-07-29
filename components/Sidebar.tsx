@@ -15,12 +15,12 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
     const menuItems = [
       { icon: LayoutDashboard, label: "Dashboard", href: "/" },
       { icon: Briefcase, label: "Jobs", href: "/jobs" },
-      { icon: Users, label: "Applicants", href: "/applicants" },
+      { icon: Users, label: "Applicants", href: "/" },
       { icon: BarChart3, label: "Reports", href: "/reports" },
       { icon: TrendingUp, label: "Top Candidates", href: "/top-candidates" },
-      { icon: Puzzle, label: "Integrations", href: "/integrations" },
-      { icon: Calendar, label: "Calendar", href: "/calendar" },
-      { icon: HelpCircle, label: "Help", href: "/help" },
+      { icon: Puzzle, label: "Integrations", href: "/" },
+      { icon: Calendar, label: "Calendar", href: "/" },
+      { icon: HelpCircle, label: "Help", href: "/" },
     ]
 
     return (

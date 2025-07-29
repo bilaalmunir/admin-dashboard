@@ -1,8 +1,9 @@
 "use client"
 
 import {
-  LineChart as RechartsLineChart,
+  AreaChart,
   Line,
+  Area,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -39,7 +40,7 @@ export default function LineChart() {
 
       <div className="h-32 sm:h-40">
         <ResponsiveContainer width="100%" height="100%">
-          <RechartsLineChart data={data}>
+          <AreaChart data={data}>
             <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
             <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 12, fill: "#9ca3af" }} />
             <YAxis
@@ -50,11 +51,29 @@ export default function LineChart() {
               ticks={[0, 10, 20, 30, 40, 50, 60]}
             />
 
+            {/* Shaded area for Candidates */}
+            <Area
+              type="monotone"
+              dataKey="candidates"
+              stroke="none"
+              fill="#06b6d4"
+              fillOpacity={0.1}
+            />
+
+            {/* Shaded area for Vacancies */}
+            <Area
+              type="monotone"
+              dataKey="vacancies"
+              stroke="none"
+              fill="#ec4899"
+              fillOpacity={0.1}
+            />
+
             <Line
               type="monotone"
               dataKey="candidates"
               stroke="#06b6d4"
-              strokeWidth={1}
+              strokeWidth={2}
               dot={false}
               name="Candidates"
             />
@@ -62,11 +81,11 @@ export default function LineChart() {
               type="monotone"
               dataKey="vacancies"
               stroke="#ec4899"
-              strokeWidth={1}
+              strokeWidth={2}
               dot={false}
               name="Vacancies"
             />
-          </RechartsLineChart>
+          </AreaChart>
         </ResponsiveContainer>
       </div>
     </div>
