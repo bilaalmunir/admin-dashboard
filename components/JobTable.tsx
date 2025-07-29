@@ -84,7 +84,7 @@ export default function JobTable() {
   ]
 
   return (
-    <div className="px-8 py-2">
+    <div className="px-4 lg:px-8 py-4 lg:py-6">
       {/* Heading outside table */}
       <div className="mb-4">
         <h3 className="text-base font-semibold text-gray-800">Posted Jobs</h3>
@@ -93,14 +93,15 @@ export default function JobTable() {
       {/* Table */}
       <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[800px]">
             <thead className="bg-gray-50">
               <tr>
                 {columns.map((column) => (
-                  <th key={column.key} className="px-4 py-2 text-left">
+                  <th key={column.key} className="px-2 sm:px-4 py-2 text-left">
                     <button className="flex items-center space-x-1 text-xs font-medium text-gray-600 hover:text-gray-800">
-                      <span>{column.label}</span>
-                      <ChevronDown className="w-4 h-4" />
+                      <span className="hidden sm:inline">{column.label}</span>
+                      <span className="sm:hidden">{column.label.substring(0, 3)}</span>
+                      <ChevronDown className="w-3 h-3 sm:w-4 sm:h-4" />
                     </button>
                   </th>
                 ))}
@@ -109,13 +110,13 @@ export default function JobTable() {
             <tbody className="divide-y divide-gray-100">
               {jobsData.map((job, index) => (
                 <tr key={index} className="hover:bg-gray-50">
-                  <td className="px-4 py-3 text-xs font-medium text-gray-800">{job.position}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.client}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.availability}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.location}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.salary}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.postedAt}</td>
-                  <td className="px-4 py-3 text-xs text-gray-600">{job.expireAt}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs font-medium text-gray-800">{job.position}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.client}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.availability}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.location}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.salary}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.postedAt}</td>
+                  <td className="px-2 sm:px-4 py-3 text-xs text-gray-600">{job.expireAt}</td>
                 </tr>
               ))}
             </tbody>
@@ -124,7 +125,7 @@ export default function JobTable() {
       </div>
 
       {/* Pagination outside table */}
-      <div className="flex justify-end mt-4">
+      <div className="flex justify-center lg:justify-end mt-4">
         <div className="bg-white rounded-xl shadow-md border border-gray-200 p-2">
           <div className="flex items-center">
             <button

@@ -36,19 +36,21 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
-      <div className="flex-1 ">
+      <div className="flex-1">
         <Header />
 
-        {/* Main Dashboard Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
+        {/* Main Dashboard Content - Responsive Layout */}
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-4 lg:gap-6 p-4 lg:p-8">
           {/* Left Column - Stats Cards and Line Chart */}
-          <div className="lg:col-span-2 space-y-2 p-8">
+          <div className="xl:col-span-2 space-y-4 lg:space-y-6">
             {/* Stats Cards Container */}
-            <div className="flex bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+            <div className="flex flex-col sm:flex-row bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
               {statsData.map((stat, index) => (
-                <div key={index} className="flex-1 flex justify-center ">
+                <div key={index} className="flex-1 flex justify-center">
                   <StatCard {...stat} isInGroup={true} />
-                  {index < statsData.length - 1 && <div className="w-px bg-gray-200 self-stretch my-4" />}
+                  {index < statsData.length - 1 && (
+                    <div className="hidden sm:block w-px bg-gray-200 self-stretch my-4" />
+                  )}
                 </div>
               ))}
             </div>
@@ -58,7 +60,7 @@ export default function Dashboard() {
           </div>
 
           {/* Right Column - Donut Chart */}
-          <div className="lg:col-span-1 py-8 pr-8">
+          <div className="xl:col-span-1">
             <DonutChart />
           </div>
         </div>

@@ -15,10 +15,10 @@ export default function DonutChart() {
       <h3 className="text-base font-semibold text-gray-800 mb-2">Recent Active Jobs</h3>
       <div className="w-full h-px bg-gray-200 mb-4"></div>
 
-      <div className="h-48 mb-4">
+      <div className="h-32 sm:h-48 mb-4">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <Pie data={data} cx="50%" cy="50%" innerRadius={45} outerRadius={75} paddingAngle={2} dataKey="value">
+            <Pie data={data} cx="50%" cy="50%" innerRadius={30} outerRadius={50} paddingAngle={2} dataKey="value">
               {data.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={entry.color} />
               ))}
@@ -27,10 +27,10 @@ export default function DonutChart() {
         </ResponsiveContainer>
       </div>
 
-      <div className="flex flex-wrap items-center justify-center gap-2">
+      <div className="flex flex-wrap items-center justify-center gap-1 sm:gap-2">
         {data.map((item, index) => (
-          <div key={index} className="flex items-center space-x-2">
-            <div className="w-2.5 h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
+          <div key={index} className="flex items-center space-x-1 sm:space-x-2">
+            <div className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full flex-shrink-0" style={{ backgroundColor: item.color }} />
             <span className="text-xs text-gray-600">{item.name}</span>
           </div>
         ))}
