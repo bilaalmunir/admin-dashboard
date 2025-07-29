@@ -35,7 +35,7 @@ export default function DashboardLayout({ children, currentPage = "Dashboard" }:
   }
 
   return (
-    <div className="flex h-screen bg-[#f1f1f1]">
+    <div className="flex h-screen bg-[#F1F1F1]">
       {/* Desktop Sidebar */}
       <div className="hidden md:block">
         <Sidebar
