@@ -21,7 +21,7 @@ export default function CandidateCard({ candidate }: CandidateCardProps) {
         <div className="flex items-center space-x-4">
           <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
             <img
-              src={candidate.avatar || "/placeholder.svg"}
+              src={ "https://avatars.githubusercontent.com/u/140199898?s=400&u=470190084b66b07a5574be5632ffc4fa2a0c0b93&v=4"}
               alt={candidate.name}
               className="w-full h-full object-cover"
             />
