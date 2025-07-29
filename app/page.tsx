@@ -40,7 +40,7 @@ export default function Dashboard() {
         <Header />
 
         {/* Main Dashboard Content - Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mb-2">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
           {/* Left Column - Stats Cards and Line Chart */}
           <div className="lg:col-span-2 space-y-2 p-8">
             {/* Stats Cards Container */}

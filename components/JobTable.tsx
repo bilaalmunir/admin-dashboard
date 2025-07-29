@@ -84,76 +84,88 @@ export default function JobTable() {
   ]
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-100">
-      <div className="p-4 border-b border-gray-100">
+    <div className="px-8 py-2">
+      {/* Heading outside table */}
+      <div className="mb-4">
         <h3 className="text-base font-semibold text-gray-800">Posted Jobs</h3>
       </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full">
-          <thead className="bg-gray-50">
-            <tr>
-              {columns.map((column) => (
-                <th key={column.key} className="px-4 py-2 text-left">
-                  <button className="flex items-center space-x-1 text-xs font-medium text-gray-600 hover:text-gray-800">
-                    <span>{column.label}</span>
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-100">
-            {jobsData.map((job, index) => (
-              <tr key={index} className="hover:bg-gray-50">
-                <td className="px-4 py-3 text-xs font-medium text-gray-800">{job.position}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.client}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.availability}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.location}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.salary}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.postedAt}</td>
-                <td className="px-4 py-3 text-xs text-gray-600">{job.expireAt}</td>
+      {/* Table */}
+      <div className="bg-white rounded-xl shadow-md border border-gray-200 overflow-hidden">
+        <div className="overflow-x-auto">
+          <table className="w-full">
+            <thead className="bg-gray-50">
+              <tr>
+                {columns.map((column) => (
+                  <th key={column.key} className="px-4 py-2 text-left">
+                    <button className="flex items-center space-x-1 text-xs font-medium text-gray-600 hover:text-gray-800">
+                      <span>{column.label}</span>
+                      <ChevronDown className="w-4 h-4" />
+                    </button>
+                  </th>
+                ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody className="divide-y divide-gray-100">
+              {jobsData.map((job, index) => (
+                <tr key={index} className="hover:bg-gray-50">
+                  <td className="px-4 py-3 text-xs font-medium text-gray-800">{job.position}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.client}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.availability}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.location}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.salary}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.postedAt}</td>
+                  <td className="px-4 py-3 text-xs text-gray-600">{job.expireAt}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
 
-      {/* Pagination */}
-      <div className="px-4 py-3 border-t border-gray-100">
-        <div className="flex items-center justify-center space-x-2">
-          <button
-            className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
-            disabled={currentPage === 1}
-            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-
-          {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
+      {/* Pagination outside table */}
+      <div className="flex justify-end mt-4">
+        <div className="bg-white rounded-xl shadow-md border border-gray-200 p-2">
+          <div className="flex items-center">
             <button
-              key={index}
-              className={`px-2 py-1 rounded-lg text-xs font-medium ${
-                page === currentPage
-                  ? "bg-purple-600 text-white"
-                  : page === "..."
-                    ? "text-gray-400 cursor-default"
-                    : "text-gray-600 hover:bg-gray-100"
-              }`}
-              disabled={page === "..."}
-              onClick={() => typeof page === "number" && setCurrentPage(page)}
+              className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+              disabled={currentPage === 1}
+              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             >
-              {page}
+              <ChevronLeft className="w-4 h-4" />
             </button>
-          ))}
+            <div className="w-px bg-gray-200 h-6 mx-1"></div>
 
-          <button
-            className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
-            disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
+            {[1, 2, 3, "...", 8, 9, 10].map((page, index) => (
+              <div key={index} className="flex items-center">
+                <button
+                  className={`px-2 py-1 rounded-lg text-xs font-medium ${
+                    page === currentPage
+                      ? "bg-gray-400 text-white"
+                      : page === "..."
+                        ? "text-gray-400 cursor-default"
+                        : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                  disabled={page === "..."}
+                  onClick={() => typeof page === "number" && setCurrentPage(page)}
+                >
+                  {page}
+                </button>
+                {index < [1, 2, 3, "...", 8, 9, 10].length - 1 && page !== "..." && (
+                  <div className="w-px bg-gray-200 h-6 mx-1"></div>
+                )}
+              </div>
+            ))}
+
+            <div className="w-px bg-gray-200 h-6 mx-1"></div>
+            <button
+              className="p-2 rounded-lg hover:bg-gray-100 disabled:opacity-50"
+              disabled={currentPage === totalPages}
+              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </div>
