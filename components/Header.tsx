@@ -3,7 +3,7 @@ import { Bell } from "lucide-react"
 export default function Header() {
   return (
     <div className="flex items-center justify-between mb-4">
-      <div>
+      <div className="pl-2">
         <h1 className="text-xl font-semibold text-gray-800">Good Morning Sarah!</h1>
         <p className="text-sm text-gray-600">Welcome back to Naxiora!</p>
       </div>

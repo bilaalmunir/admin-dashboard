@@ -36,7 +36,7 @@ export default function Dashboard() {
 
   return (
     <DashboardLayout>
-      <div className="flex-1 p-4 bg-gray-50">
+      <div className="flex-1 p-4 ">
         <Header />
 
         {/* Main Dashboard Content - Two Column Layout */}

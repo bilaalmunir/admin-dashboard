@@ -27,7 +27,7 @@ export default function DashboardLayout({ children, currentPage = "Dashboard" }:
   }, [])
 
   return (
-    <div className="flex h-screen bg-gray-50">
+    <div className="flex h-screen bg-[#f1f1f1]">
       <Sidebar
         isExpanded={sidebarExpanded}
         onItemClick={() => setSidebarExpanded(true)}

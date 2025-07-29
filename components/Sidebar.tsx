@@ -26,26 +26,30 @@ const Sidebar = forwardRef<HTMLDivElement, SidebarProps>(
     return (
       <div
         ref={ref}
-        className={`h-full bg-gradient-to-b from-purple-100 to-purple-200 transition-all duration-300 ease-in-out ${
-          isExpanded ? "w-64" : "w-16"
+        className={`h-full  transition-all duration-300 ease-in-out ${
+          isExpanded ? "w-64" : "w-28"
         }`}
       >
         {/* Logo */}
-        <div className="p-3 border-b border-purple-200">
-          <div className="w-7 h-7 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center mx-auto">
-            <span className="text-white font-bold text-base">N</span>
+        <div className="p-6">
+          <div className="w-7 h-7 rounded-lg flex items-center justify-center mx-auto bg-[#f1f1f1]">
+            <span className="text-blue font-bold text-4xl">N</span>
           </div>
         </div>
 
         {/* Navigation */}
-        <nav className="p-1.5 space-y-1">
+        <nav className="space-y-1 px-8 py-4">
           {menuItems.map((item, index) => (
             <Link key={index} href={item.href}>
               <button
                 onClick={onItemClick}
-                className={`w-full flex items-center space-x-3 px-2.5 py-2.5 rounded-lg text-left transition-all duration-200 ${
+                className={`flex items-center transition-all duration-200 ${
+                  isExpanded 
+                    ? "w-full space-x-3 p-4 rounded-xl text-left justify-start" 
+                    : "w-12 h-12 rounded-full p-0 justify-center"
+                } ${
                   item.label === currentPage
-                    ? "bg-white bg-opacity-60 text-gray-800 shadow-sm"
+                    ? "bg-white bg-opacity-60 text-gray-800 shadow-sm "
                     : "text-gray-700 hover:bg-white hover:bg-opacity-40"
                 }`}
               >
